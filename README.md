@@ -1,12 +1,7 @@
-# Calculator, The Game: A Reinforcement Learning approach
-##### Machine Learning 2.0 project by Elijah Justin Medina
+# What's that Pokemon?: Feature Extraction for Image Classification
+##### Machine Learning project by Elijah Justin Medina
 
-The goal of this project is to build a reinforcement learner that can transform a given integer into a target integer using a set of actions (e.g. addition, multiplication).
-With an initial problem of building a reinforcement learner for data wrangling, the project is an initial attempt for processing integers. Multiple rules and trials show difficulties of the model to converge to a solution, mainly due to the wide range of states that the agent can be in.
-
-##### Future analysis and possible improvements
-
-As next steps, other rule sets should be explored (different rewards and punishment systems) or other methodologies aside from Q-Learning can be used for the project.
+Usual image classification use images as direct input to convolutional layers in order to predict a target variable. In some cases, it may be enough to manually extract features from the images through image processing since the resulting model will be more interpretable. In this project, features like color and size information are extracted from images of Pokemon in order to classify their type. The results show varying accuracies as different types of Pokemon are more predictable with the engineered features than others.
 
 ##### Report and analysis
 
