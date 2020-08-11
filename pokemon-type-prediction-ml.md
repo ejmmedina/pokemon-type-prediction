@@ -284,7 +284,7 @@ ax.hist(im_arr[im_arr.mean(axis=2)<254,0], color='gray', bins=255);
 ```
 
 
-![png](output_17_0.png)
+![png](output_img/output_17_0.png)
 
 
 Looking at the very high count for grayscale value of EXACTLY 0, we don't need to do any thresholding to remove the background.
@@ -302,7 +302,7 @@ ax.hist(im_arr.flatten(), color='gray', bins=255);
 ```
 
 
-![png](output_20_0.png)
+![png](output_img/output_20_0.png)
 
 
 The white background corresponds to the grayscale value of 255. We can check if we can completely remove the background by filtering the 255 values:
@@ -325,7 +325,7 @@ ax[1].imshow(im_arr<255)
 
 
 
-![png](output_22_1.png)
+![png](output_img/output_22_1.png)
 
 
 However, when the pixels transition from background to foreground, there is an interpolation of colors, making it more difficult to filter the background. We can threshold the background instead:
@@ -341,7 +341,7 @@ ax.hist(im_arr[im_arr!=255], color='gray', bins=255);
 ```
 
 
-![png](output_24_0.png)
+![png](output_img/output_24_0.png)
 
 
 From the histogram, an appropriate threshold would be chosen by tweaking the parameters for the most difficult image to process: brionne (which is a pokemon that has alot of white elements)
@@ -363,7 +363,7 @@ ax[1].imshow(im_arr<245)
 
 
 
-![png](output_26_1.png)
+![png](output_img/output_26_1.png)
 
 
 which is better. But it leaves spaces in the foreground.
@@ -396,20 +396,20 @@ im
 
 
 
-![png](output_28_0.png)
+![png](output_img/output_28_0.png)
 
 
 
 
-![png](output_28_1.png)
+![png](output_img/output_28_1.png)
 
 
 
-![png](output_28_2.png)
+![png](output_img/output_28_2.png)
 
 
 
-![png](output_28_3.png)
+![png](output_img/output_28_3.png)
 
 
 
@@ -429,7 +429,7 @@ plt.imshow(np.ma.masked_array(im_arr[:,:], (im_arr<250)), interpolation=None)
 
 
 
-![png](output_29_1.png)
+![png](output_img/output_29_1.png)
 
 
 
@@ -467,7 +467,7 @@ plt.legend()
 
 
 
-![png](output_32_1.png)
+![png](output_img/output_32_1.png)
 
 
 
@@ -505,7 +505,7 @@ plot_pokemon('bulbasaur');
 ```
 
 
-![png](output_34_0.png)
+![png](output_img/output_34_0.png)
 
 
 
@@ -514,7 +514,7 @@ plot_pokemon('charmander');
 ```
 
 
-![png](output_35_0.png)
+![png](output_img/output_35_0.png)
 
 
 
@@ -523,7 +523,7 @@ plot_pokemon('squirtle');
 ```
 
 
-![png](output_36_0.png)
+![png](output_img/output_36_0.png)
 
 
 
@@ -532,7 +532,7 @@ plot_pokemon('pikachu');
 ```
 
 
-![png](output_37_0.png)
+![png](output_img/output_37_0.png)
 
 
 ### Feature extraction
@@ -555,7 +555,7 @@ plt.imshow(im_arr)
 
 
 
-![png](output_39_1.png)
+![png](output_img/output_39_1.png)
 
 
 #### Mean <br>(red, green, blue)
@@ -922,7 +922,7 @@ ax.axes.set_title("Correlation Matrix of Color Features", fontsize=18, y=1.01);
 ```
 
 
-![png](output_55_0.png)
+![png](output_img/output_55_0.png)
 
 
 Note that there are heavily correlated features like mean and mode of the respective channel, which is expected since there are many instances where the mean is very close to the mode. However, the fact that it is not always the same indicates that we can still use these separate features, since machine learning techniques have ways to deal with correlation (regularization).
@@ -966,7 +966,7 @@ ax[1].imshow(im_arr_small)
 
 
 
-![png](output_60_1.png)
+![png](output_img/output_60_1.png)
 
 
 However, as expected, while guzzlord (left) is larger than wingull (right), it is not to scale since guzzlord (according to wiki) is 5.5m tall while anorith is 0.61m. Nonetheless, we will use the pixels as proxies.
@@ -987,7 +987,7 @@ plt.axis('off')
 
 
 
-![png](output_63_1.png)
+![png](output_img/output_63_1.png)
 
 
 Background
@@ -1000,7 +1000,7 @@ plt.axis('off')
 ```
 
 
-![png](output_65_0.png)
+![png](output_img/output_65_0.png)
 
 
 
@@ -1023,7 +1023,7 @@ ax.set_title('Height distribution', loc='left', size=16);
 ```
 
 
-![png](output_68_0.png)
+![png](output_img/output_68_0.png)
 
 
 
@@ -1046,7 +1046,7 @@ ax.set_title('Height distribution', loc='left', size=16);
 
 
 
-![png](output_69_1.png)
+![png](output_img/output_69_1.png)
 
 
 
@@ -1062,7 +1062,7 @@ ax.set_title('Width distribution', loc='left', size=16);
 ```
 
 
-![png](output_70_0.png)
+![png](output_img/output_70_0.png)
 
 
 ### Feature extraction
@@ -1523,7 +1523,7 @@ plt.xlabel('Count')
 
 
 
-![png](output_98_1.png)
+![png](output_img/output_98_1.png)
 
 
 Looking at the distribution of the target classes, it is immediately obvious that the dataset is imbalanced. Particularly with Flying Pokemons, this type is usually a Secondary Type rather than a Primary Type, causing it to have a low count. Nonetheless, we will continue with this data and observe the results.
@@ -1843,7 +1843,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_110_1.png)
+![png](output_img/output_110_1.png)
 
 
 
@@ -2301,7 +2301,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_126_1.png)
+![png](output_img/output_126_1.png)
 
 
 Interestingly, the top feature for the logistic regression is the file type of the image processed (PNG or JPG). As observed earlier, the PNG is for pokemons from Gen I to Gen VI while the filetype of the most recent Gen VII are all JPG. While this is not a color feature, it is interesting to see how it is a more significant feature than the colors (which could be attributed to the difference in style from the first generations to the last ones). Note that Gen VII is where Alolan pokemons are introduced, signifying a change in style which was captured by this model.
@@ -2621,7 +2621,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_137_1.png)
+![png](output_img/output_137_1.png)
 
 
 
@@ -2888,7 +2888,7 @@ plt.xlabel('Count')
 
 
 
-![png](output_147_1.png)
+![png](output_img/output_147_1.png)
 
 
 
@@ -3036,7 +3036,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_154_1.png)
+![png](output_img/output_154_1.png)
 
 
 
@@ -3475,7 +3475,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_167_1.png)
+![png](output_img/output_167_1.png)
 
 
 
@@ -3839,7 +3839,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_179_1.png)
+![png](output_img/output_179_1.png)
 
 
 
@@ -4628,7 +4628,7 @@ plt.fill_between([0, 40], [9.5, 9.5], [17.5, 17.5], zorder=2, alpha=0.5)
 
 
 
-![png](output_199_1.png)
+![png](output_img/output_199_1.png)
 
 
 The orange filled area will be the sampled data.
@@ -4927,7 +4927,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_211_1.png)
+![png](output_img/output_211_1.png)
 
 
 
@@ -5331,7 +5331,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_225_1.png)
+![png](output_img/output_225_1.png)
 
 
 
@@ -5635,7 +5635,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_237_1.png)
+![png](output_img/output_237_1.png)
 
 
 
@@ -5814,7 +5814,7 @@ plt.fill_between([0, 45], [9.5, 9.5], [17.5, 17.5], zorder=2, alpha=0.5)
 
 
 
-![png](output_243_1.png)
+![png](output_img/output_243_1.png)
 
 
 
@@ -5975,7 +5975,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_253_1.png)
+![png](output_img/output_253_1.png)
 
 
 
@@ -6347,7 +6347,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_266_1.png)
+![png](output_img/output_266_1.png)
 
 
 
@@ -6651,7 +6651,7 @@ plt.xlim(-max(abs(coefs)) -0.01, max(abs(coefs))+0.01)
 
 
 
-![png](output_278_1.png)
+![png](output_img/output_278_1.png)
 
 
 
